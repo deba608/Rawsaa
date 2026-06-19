@@ -9,8 +9,9 @@ import styles from './Navbar.module.css';
 const LINKS = [
   { href: '#flavors', label: 'Flavours' },
   { href: '#why-rawsa', label: 'Why RAWSA' },
+  { href: '#family', label: 'Products' },
   { href: '#story', label: 'Our Story' },
-  { href: '#lifestyle', label: 'Lifestyle' },
+  { href: '#contact', label: 'Distributor' },
 ];
 
 export default function Navbar() {
@@ -25,40 +26,40 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
-      <a href="#hero" className={styles.logo} aria-label="RAWSA home">
-        <Image
-          src="/assets/RAWSA_logo.png"
-          alt=""
-          width={44}
-          height={44}
-          className={styles.brandImage}
-        />
-        <span className={styles.brandText}>
-          <span className={styles.brandTitle}>RAWSA</span>
-          <span className={styles.brandSubtitle}>by Stoneman Foodtech</span>
-        </span>
-      </a>
-
-      <nav className={styles.links} aria-label="Primary">
-        {LINKS.map((l) => (
-          <a key={l.href} href={l.href} className={styles.link}>
-            {l.label}
-          </a>
-        ))}
-        <a href="#contact" className={styles.ctaLink}>
-          Distributor Program
+    <header className={styles.outer}>
+      <div className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+        <a href="#hero" className={styles.logo} aria-label="RAWSA home">
+          <Image
+            src="/assets/RAWSA_logo.png"
+            alt="RAWSA"
+            width={120}
+            height={40}
+            className={styles.brandImage}
+          />
+          <span className={styles.brandSubtitle}>BY STONEMAN FOODTECH</span>
         </a>
-      </nav>
 
-      <button
-        className={styles.menuBtn}
-        onClick={() => setOpen((v) => !v)}
-        aria-label={open ? 'Close menu' : 'Open menu'}
-        aria-expanded={open}
-      >
-        {open ? <X size={24} /> : <Menu size={24} />}
-      </button>
+        <nav className={styles.links} aria-label="Primary">
+          {LINKS.map((l) => (
+            <a key={l.href} href={l.href} className={styles.link}>
+              {l.label}
+            </a>
+          ))}
+        </nav>
+
+        <a href="#contact" className={styles.ctaLink}>
+          Distributor Enquiry
+        </a>
+
+        <button
+          className={styles.menuBtn}
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
 
       <AnimatePresence>
         {open && (
@@ -79,7 +80,7 @@ export default function Navbar() {
               className={styles.mobileCta}
               onClick={() => setOpen(false)}
             >
-              Distributor Program
+              Distributor Enquiry
             </a>
           </motion.div>
         )}

@@ -5,33 +5,67 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  padding-top: 120px;
-  padding-bottom: 2rem;
+  padding-top: 110px;
+  padding-bottom: 1.5rem;
   background:
-    radial-gradient(120% 90% at 85% 20%, var(--flavor-bg-accent) 0%, transparent 60%),
+    radial-gradient(110% 80% at 78% 18%, var(--flavor-bg-accent) 0%, transparent 58%),
+    radial-gradient(90% 70% at 10% 90%, color-mix(in srgb, var(--flavor-bg-accent) 70%, transparent) 0%, transparent 55%),
     var(--bg-color);
   transition: background var(--flavor-transition);
 }
 
-/* soft ambient glow tied to the active flavor */
-.glow {
+/* ---- Ambient warm washes ---- */
+.blobA,
+.blobB {
   position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 55vw;
-  max-width: 760px;
-  aspect-ratio: 1;
-  background: radial-gradient(circle, var(--flavor-primary) 0%, transparent 65%);
-  opacity: 0.12;
-  filter: blur(30px);
+  border-radius: 50%;
   pointer-events: none;
+  filter: blur(40px);
   z-index: 0;
+  transition: background var(--flavor-transition);
+}
+.blobA {
+  top: -8%;
+  right: 4%;
+  width: 46vw;
+  max-width: 620px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, color-mix(in srgb, var(--flavor-primary) 30%, transparent) 0%, transparent 65%);
+  opacity: 0.7;
+}
+.blobB {
+  bottom: -14%;
+  left: -6%;
+  width: 38vw;
+  max-width: 480px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, color-mix(in srgb, var(--flavor-gradient) 22%, transparent) 0%, transparent 65%);
+  opacity: 0.55;
+}
+
+/* Oversized brand watermark behind everything */
+.watermark {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(7rem, 22vw, 22rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: color-mix(in srgb, var(--flavor-primary) 7%, transparent);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+  transition: color var(--flavor-transition);
 }
 
 .inner {
   flex: 1;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 0.92fr 1.08fr;
   align-items: center;
   gap: 2rem;
   position: relative;
@@ -39,28 +73,28 @@
   width: 100%;
 }
 
-/* ---- Copy ---- */
+/* ============ Copy ============ */
 .content {
-  max-width: 600px;
+  max-width: 560px;
 }
 
-.badge {
+.kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   font-family: var(--font-sans);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  padding: 0.55rem 1.1rem;
+  letter-spacing: 0.18em;
+  padding: 0.5rem 1.05rem;
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.6);
   border: 1px solid var(--hairline);
   backdrop-filter: blur(10px);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.6rem;
 }
-.badgeDot {
+.kickerDot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -68,34 +102,102 @@
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--flavor-primary) 22%, transparent);
   transition: background var(--flavor-transition);
 }
-.badge em {
+.kicker em {
   font-style: normal;
   font-weight: 500;
   letter-spacing: 0.08em;
   opacity: 0.6;
 }
 
+/* ---- Typographic hierarchy ---- */
 .headline {
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.5rem;
+  color: var(--text-color);
 }
-.accentWord {
+.headTop {
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+}
+.headAccent {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  line-height: 0.9;
   color: var(--flavor-primary);
   transition: color var(--flavor-transition);
+  margin: 0.04em 0;
+}
+.headBottom {
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
 }
 
 .subhead {
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-  line-height: 1.6;
+  font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+  line-height: 1.65;
   color: var(--accent-charcoal);
-  margin: 1.5rem 0 2.25rem;
-  max-width: 42ch;
+  margin: 0 0 2.25rem;
+  max-width: 44ch;
 }
 
+/* ---- CTA section ---- */
 .ctas {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.1rem;
   margin-bottom: 2.5rem;
+}
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 0.95rem 1.8rem;
+  border-radius: 100px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--flavor-primary), var(--flavor-gradient));
+  box-shadow: 0 14px 30px -12px color-mix(in srgb, var(--flavor-primary) 70%, transparent);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out),
+    background var(--flavor-transition);
+}
+.ctaPrimary svg {
+  transition: transform 0.25s var(--ease-out);
+}
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 38px -12px color-mix(in srgb, var(--flavor-primary) 78%, transparent);
+}
+.ctaPrimary:hover svg {
+  transform: translateX(4px);
+}
+.ctaGhost {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text-color);
+  padding: 0.3rem 0;
+}
+.ctaGhost::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--text-color);
+  transform: scaleX(0.35);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-out);
+}
+.ctaGhost:hover::after {
+  transform: scaleX(1);
 }
 
 .facts {
@@ -109,45 +211,53 @@
 .facts dt {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.9rem;
+  font-size: 2rem;
   line-height: 1;
   color: var(--flavor-primary);
   transition: color var(--flavor-transition);
 }
 .facts dd {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--muted);
   margin-top: 0.35rem;
 }
 
-/* ---- Product stage ---- */
+/* ============ Product stage (the hero) ============ */
 .stage {
   position: relative;
-  height: clamp(440px, 62vh, 620px);
+  height: clamp(480px, 70vh, 680px);
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1200px;
 }
 
 .disc {
   position: absolute;
-  width: min(78%, 460px);
+  width: min(84%, 540px);
   aspect-ratio: 1;
   border-radius: 50%;
   background: linear-gradient(155deg, var(--flavor-primary), var(--flavor-gradient));
-  box-shadow: 0 40px 90px -30px color-mix(in srgb, var(--flavor-primary) 70%, black);
+  box-shadow: 0 50px 110px -34px color-mix(in srgb, var(--flavor-primary) 72%, black);
   transition: background var(--flavor-transition), box-shadow var(--flavor-transition);
   z-index: 1;
 }
-.ring {
+.discInner {
   position: absolute;
-  width: min(96%, 580px);
+  width: min(60%, 380px);
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 1.5px dashed color-mix(in srgb, var(--flavor-primary) 35%, transparent);
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.35), transparent 60%);
+  z-index: 2;
+  pointer-events: none;
+}
+.ring {
+  position: absolute;
+  width: min(100%, 640px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1.5px dashed color-mix(in srgb, var(--flavor-primary) 32%, transparent);
   animation: spin 60s linear infinite;
   z-index: 0;
 }
@@ -157,56 +267,67 @@
 
 .fruits {
   position: absolute;
-  inset: -6%;
-  z-index: 3;
+  inset: -8%;
+  z-index: 5;
   pointer-events: none;
 }
 .fruit {
   position: absolute;
   line-height: 1;
-  opacity: 0.85;
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18));
+  opacity: 0.9;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.2));
+  will-change: transform;
 }
 
+/* The bottle is the focal point */
+.bottleWrap {
+  position: relative;
+  z-index: 4;
+  width: clamp(240px, 38vw, 420px);
+  height: 92%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .bottle {
   position: relative;
-  width: clamp(190px, 30vw, 320px);
-  height: 96%;
-  z-index: 4;
+  width: 100%;
+  height: 100%;
   transform-style: preserve-3d;
+  will-change: transform;
 }
 .bottleFloat {
   position: absolute;
   inset: 0;
-  filter: drop-shadow(0 34px 46px rgba(0, 0, 0, 0.32));
+  border-radius: 40% / 18%;
 }
 
 .flavorTag {
   position: absolute;
-  bottom: 8%;
-  right: -2%;
+  bottom: 9%;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 0.8rem 1.1rem;
-  background: rgba(255, 255, 255, 0.82);
+  padding: 0.85rem 1.15rem;
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid var(--hairline);
-  border-radius: 14px;
+  border-radius: 16px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 16px 30px -18px rgba(0, 0, 0, 0.3);
-  z-index: 5;
+  box-shadow: 0 16px 34px -18px rgba(0, 0, 0, 0.3);
+  z-index: 6;
 }
 .flavorTagName {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 .flavorTagSub {
   font-size: 0.78rem;
   color: var(--muted);
 }
 
-/* ---- Bottle rail (switcher) ---- */
+/* ============ Bottle rail (switcher) ============ */
 .rail {
   position: relative;
   z-index: 2;
@@ -214,7 +335,7 @@
   justify-content: center;
   gap: clamp(0.5rem, 2vw, 1.75rem);
   max-width: var(--max-width);
-  margin: 1.5rem auto 0;
+  margin: 1rem auto 0;
   padding: 0 var(--gutter);
   width: 100%;
 }
@@ -229,7 +350,7 @@
   border: none;
   cursor: pointer;
   border-radius: 14px;
-  opacity: 0.55;
+  opacity: 0.5;
   filter: saturate(0.7);
   transition: opacity 0.35s ease, filter 0.35s ease, transform 0.35s var(--ease-out);
 }
@@ -279,7 +400,7 @@
   to { transform: scaleX(1); }
 }
 
-/* ---- Responsive ---- */
+/* ============ Responsive ============ */
 @media (max-width: 980px) {
   .inner {
     grid-template-columns: 1fr;
@@ -290,7 +411,10 @@
     margin-inline: auto;
     order: 2;
   }
-  .badge,
+  .headline {
+    align-items: center;
+  }
+  .kicker,
   .ctas,
   .facts {
     justify-content: center;
@@ -300,7 +424,7 @@
   }
   .stage {
     order: 1;
-    height: clamp(320px, 42vh, 440px);
+    height: clamp(360px, 46vh, 500px);
   }
   .flavorTag {
     right: 4%;
@@ -316,5 +440,10 @@
   }
   .rail::-webkit-scrollbar { display: none; }
   .railName { font-size: 0.7rem; }
-  .facts dt { font-size: 1.5rem; }
+  .facts dt { font-size: 1.6rem; }
+  .ctas { gap: 0.85rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring { animation: none; }
 }
