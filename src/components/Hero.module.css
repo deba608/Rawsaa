@@ -1,140 +1,320 @@
-.heroSection {
+.hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
-  align-items: center;
-  padding: 0 4rem;
+  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
-  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  padding-top: 80px; /* Offset for sticky navbar */
+  padding-top: 120px;
+  padding-bottom: 2rem;
+  background:
+    radial-gradient(120% 90% at 85% 20%, var(--flavor-bg-accent) 0%, transparent 60%),
+    var(--bg-color);
+  transition: background var(--flavor-transition);
 }
 
-.heroContent {
+/* soft ambient glow tied to the active flavor */
+.glow {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 55vw;
+  max-width: 760px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, var(--flavor-primary) 0%, transparent 65%);
+  opacity: 0.12;
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
   flex: 1;
-  max-width: 600px;
-  z-index: 10;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  width: 100%;
 }
 
-.heroBadge {
-  display: inline-block;
+/* ---- Copy ---- */
+.content {
+  max-width: 600px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.76rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  background: rgba(0,0,0,0.05);
-  margin-bottom: 1.5rem;
+  letter-spacing: 0.16em;
+  padding: 0.55rem 1.1rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--hairline);
+  backdrop-filter: blur(10px);
+  margin-bottom: 1.75rem;
 }
-
-.heroSubheadline {
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
-  line-height: 1.6;
-  margin-top: 1.5rem;
-  margin-bottom: 2.5rem;
-  opacity: 0.85;
-}
-
-.heroCtas {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-
-.flavorSwitcher {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-
-.flavorBtn {
-  position: relative;
-  background: transparent;
-  border: none;
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-color);
-  opacity: 0.6;
-  cursor: pointer;
-  padding: 0.5rem 0;
-  transition: opacity 0.3s ease;
-}
-
-.flavorBtn:hover {
-  opacity: 1;
-}
-
-.flavorBtn.active {
-  opacity: 1;
-}
-
-.activeIndicator {
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background-color: var(--text-color);
-  border-radius: 2px;
-}
-
-.heroVisual {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 5;
-  height: 600px;
-}
-
-.bottleContainer {
-  position: relative;
-  width: 300px;
-  height: 600px;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
-}
-
-.bottleImage {
-  object-fit: contain;
-}
-
-/* Background blob/shape styling */
-.bgBlob {
-  position: absolute;
-  top: 50%;
-  right: -10%;
-  transform: translateY(-50%);
-  width: 800px;
-  height: 800px;
+.badgeDot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 70%);
+  background: var(--flavor-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--flavor-primary) 22%, transparent);
+  transition: background var(--flavor-transition);
+}
+.badge em {
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+
+.headline {
+  margin-bottom: 0;
+}
+.accentWord {
+  color: var(--flavor-primary);
+  transition: color var(--flavor-transition);
+}
+
+.subhead {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--accent-charcoal);
+  margin: 1.5rem 0 2.25rem;
+  max-width: 42ch;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.facts {
+  display: flex;
+  gap: 2.5rem;
+}
+.facts div {
+  display: flex;
+  flex-direction: column;
+}
+.facts dt {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--flavor-primary);
+  transition: color var(--flavor-transition);
+}
+.facts dd {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+/* ---- Product stage ---- */
+.stage {
+  position: relative;
+  height: clamp(440px, 62vh, 620px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.disc {
+  position: absolute;
+  width: min(78%, 460px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(155deg, var(--flavor-primary), var(--flavor-gradient));
+  box-shadow: 0 40px 90px -30px color-mix(in srgb, var(--flavor-primary) 70%, black);
+  transition: background var(--flavor-transition), box-shadow var(--flavor-transition);
+  z-index: 1;
+}
+.ring {
+  position: absolute;
+  width: min(96%, 580px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1.5px dashed color-mix(in srgb, var(--flavor-primary) 35%, transparent);
+  animation: spin 60s linear infinite;
   z-index: 0;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.fruits {
+  position: absolute;
+  inset: -6%;
+  z-index: 3;
   pointer-events: none;
 }
+.fruit {
+  position: absolute;
+  line-height: 1;
+  opacity: 0.85;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18));
+}
 
-@media (max-width: 1024px) {
-  .heroSection {
-    flex-direction: column;
-    padding: 120px 2rem 4rem;
+.bottle {
+  position: relative;
+  width: clamp(190px, 30vw, 320px);
+  height: 96%;
+  z-index: 4;
+  transform-style: preserve-3d;
+}
+.bottleFloat {
+  position: absolute;
+  inset: 0;
+  filter: drop-shadow(0 34px 46px rgba(0, 0, 0, 0.32));
+}
+
+.flavorTag {
+  position: absolute;
+  bottom: 8%;
+  right: -2%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0.8rem 1.1rem;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 30px -18px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+.flavorTagName {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+.flavorTagSub {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ---- Bottle rail (switcher) ---- */
+.rail {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1.75rem);
+  max-width: var(--max-width);
+  margin: 1.5rem auto 0;
+  padding: 0 var(--gutter);
+  width: 100%;
+}
+.railItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.6rem 0.85rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 14px;
+  opacity: 0.55;
+  filter: saturate(0.7);
+  transition: opacity 0.35s ease, filter 0.35s ease, transform 0.35s var(--ease-out);
+}
+.railItem:hover {
+  opacity: 0.9;
+  filter: saturate(1);
+  transform: translateY(-4px);
+}
+.railActive {
+  opacity: 1;
+  filter: saturate(1);
+}
+.railThumb {
+  position: relative;
+  width: 46px;
+  height: 86px;
+  transition: transform 0.35s var(--ease-out);
+}
+.railActive .railThumb {
+  transform: scale(1.18);
+}
+.railName {
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.railUnderline {
+  position: absolute;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0;
+  height: 2.5px;
+  border-radius: 2px;
+  background: var(--item-primary);
+  overflow: hidden;
+}
+.railFill {
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: rgba(255, 255, 255, 0.65);
+  animation: fillGrow linear forwards;
+}
+@keyframes fillGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 980px) {
+  .inner {
+    grid-template-columns: 1fr;
     text-align: center;
+    gap: 0.5rem;
   }
-  
-  .heroContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .content {
+    margin-inline: auto;
+    order: 2;
   }
-
-  .heroCtas, .flavorSwitcher {
+  .badge,
+  .ctas,
+  .facts {
     justify-content: center;
   }
-  
-  .heroVisual {
-    margin-top: 4rem;
+  .facts {
+    gap: 1.75rem;
   }
+  .stage {
+    order: 1;
+    height: clamp(320px, 42vh, 440px);
+  }
+  .flavorTag {
+    right: 4%;
+  }
+}
+
+@media (max-width: 640px) {
+  .rail {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 0.5rem;
+  }
+  .rail::-webkit-scrollbar { display: none; }
+  .railName { font-size: 0.7rem; }
+  .facts dt { font-size: 1.5rem; }
 }

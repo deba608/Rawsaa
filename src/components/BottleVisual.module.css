@@ -1,0 +1,70 @@
+.img {
+  object-fit: contain;
+}
+
+/* Generated fallback bottle (used when a flavor has no render yet) */
+.fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fallbackBottle {
+  position: relative;
+  width: 46%;
+  height: 88%;
+  border-radius: 44% 44% 38% 38% / 16% 16% 12% 12%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: #fff;
+  box-shadow: inset 0 -30px 60px rgba(0, 0, 0, 0.18),
+    inset 0 20px 40px rgba(255, 255, 255, 0.25);
+  text-align: center;
+}
+
+.fallbackBottle::before {
+  /* neck */
+  content: '';
+  position: absolute;
+  top: -11%;
+  width: 26%;
+  height: 14%;
+  background: inherit;
+  border-radius: 8px 8px 0 0;
+}
+
+.fallbackCap {
+  position: absolute;
+  top: -16%;
+  width: 30%;
+  height: 6%;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+}
+
+.fallbackLabel {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(0.9rem, 2.4vw, 1.4rem);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.fallbackLabel em {
+  font-size: 0.7em;
+  letter-spacing: 0.22em;
+  opacity: 0.85;
+  font-style: normal;
+}
+
+.fallbackEmoji {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  margin-top: 0.3rem;
+}

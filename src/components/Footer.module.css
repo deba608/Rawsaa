@@ -1,0 +1,126 @@
+.footer {
+  background: var(--text-color);
+  color: var(--bg-color);
+  padding-block: clamp(3rem, 7vw, 5rem) 2rem;
+}
+
+.topAccent {
+  width: 180px;
+  height: 16px;
+  color: var(--flavor-primary);
+  opacity: 0.6;
+  margin-bottom: 2.5rem;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(250, 248, 245, 0.15);
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.4rem;
+  letter-spacing: 0.04em;
+}
+.by {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--flavor-primary);
+  margin-top: -0.5rem;
+  transition: color var(--flavor-transition);
+}
+.tag {
+  color: rgba(250, 248, 245, 0.65);
+  max-width: 36ch;
+  font-size: 0.95rem;
+}
+
+.colTitle {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(250, 248, 245, 0.5);
+  margin-bottom: 1.25rem;
+}
+
+.navCol,
+.contactCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.navLink,
+.contactCol a {
+  color: rgba(250, 248, 245, 0.8);
+  font-size: 0.95rem;
+  width: fit-content;
+  transition: color 0.25s ease;
+}
+.navLink:hover,
+.contactCol a:hover {
+  color: var(--flavor-primary);
+}
+.address {
+  color: rgba(250, 248, 245, 0.55);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 248, 245, 0.2);
+  color: var(--bg-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+.social:hover {
+  background: var(--flavor-primary);
+  border-color: var(--flavor-primary);
+  transform: translateY(-3px);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 2rem;
+  color: rgba(250, 248, 245, 0.55);
+  font-size: 0.85rem;
+}
+.legal {
+  display: flex;
+  gap: 0.75rem;
+}
+.legal a:hover {
+  color: var(--flavor-primary);
+}
+
+@media (max-width: 760px) {
+  .top {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

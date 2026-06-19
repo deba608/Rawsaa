@@ -1,0 +1,57 @@
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://172.20.10.2:3000
+✓ Ready in 620ms
+
+ GET / 200 in 630ms (next.js: 217ms, application-code: 413ms)
+[browser] Image with src "/assets/Orange.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET / 200 in 96ms (next.js: 4ms, application-code: 92ms)
+ GET / 200 in 94ms (next.js: 8ms, application-code: 87ms)
+✓ Compiled in 55ms
+✓ Compiled in 145ms
+ GET / 200 in 160ms (next.js: 51ms, application-code: 109ms)
+ GET / 200 in 73ms (next.js: 7ms, application-code: 65ms)
+[browser] Image with src "/assets/Orange.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+✓ Compiled in 82ms
+[browser] Image with src "/assets/Orange.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[browser] Image with src "/assets/Orange.png" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
+[browser] Image with src "/assets/Mango.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[browser] Image with src "/assets/AppyRush.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[browser] Image with src "/assets/PinkGuava.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[browser] Image with src "/assets/SweetTamarinda.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+ GET / 200 in 249ms (next.js: 85ms, application-code: 163ms)
+ GET / 200 in 94ms (next.js: 11ms, application-code: 83ms)
+ GET / 200 in 32ms (next.js: 5ms, application-code: 27ms)
+[browser] Image with src "/assets/SweetTamarinda.png" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
+[browser] Image with src "/assets/Mango.png" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
+[browser] Image with src "/assets/AppyRush.png" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
+[browser] Image with src "/assets/PinkGuava.png" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
+✓ Compiled in 27ms
+ GET / 200 in 120ms (next.js: 74ms, application-code: 47ms)
+ GET / 200 in 263ms (next.js: 6ms, application-code: 257ms)
+ GET / 200 in 147ms (next.js: 10ms, application-code: 138ms)
+ GET / 200 in 149ms (next.js: 6ms, application-code: 142ms)
+ GET / 200 in 126ms (next.js: 4ms, application-code: 122ms)
+[browser] Image with src "/assets/Orange.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET / 200 in 112ms (next.js: 6ms, application-code: 107ms)
+[browser] Image with src "/assets/Orange.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET / 200 in 127ms (next.js: 5ms, application-code: 122ms)
+[browser] Image with src "/assets/Orange.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET / 200 in 120ms (next.js: 4ms, application-code: 116ms)
+ GET / 200 in 118ms (next.js: 4ms, application-code: 114ms)
+[browser] Image with src "/assets/Orange.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET / 200 in 143ms (next.js: 4ms, application-code: 139ms)
+[browser] Image with src "/assets/Orange.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+✓ Compiled in 31ms
+ GET / 200 in 252ms (next.js: 135ms, application-code: 117ms)
+✓ Compiled in 40ms
+ GET / 200 in 160ms (next.js: 100ms, application-code: 60ms)
+ GET / 200 in 280ms (next.js: 7ms, application-code: 273ms)
+[browser] Image with src "/assets/Orange.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
